@@ -10,7 +10,7 @@ with open(os.path.join(directory, 'README.md'), encoding='utf-8') as f:
 setup(
     name='nothoney',
     py_modules=['nothoney'],
-    version='0.1.0',
+    version='0.1.1',
     description='recursively iterate through a nested (n-deep) dictionary or JSON object/file',
     long_description=long_description,
     long_description_content_type='text/markdown',

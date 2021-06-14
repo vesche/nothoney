@@ -5,10 +5,13 @@ modes = ['key', 'value']
 class InvalidMode(Exception):
     pass
 
-class ValidJsonPlox(Exception):
+class ValidPathPlox(Exception):
     pass
 
-class ValidPathPlox(Exception):
+class ValidPermPlox(Exception):
+    pass
+
+class ValidJsonPlox(Exception):
     pass
 
 def _omnomnom(obj, lookup, mode):
@@ -27,11 +30,13 @@ def eat(obj, lookup, mode='key', as_file=False):
     if mode not in modes:
         raise InvalidMode(f'Error! Mode must be one of: {modes}')
     if as_file:
-        with open(obj) as f:
-            try:
+        try:
+            with open(obj) as f:
                 obj = json.loads(f.read())
-            except FileNotFoundError as e:
-                raise ValidPathPlox(e)
-            except json.decoder.JSONDecodeError as e:
-                raise ValidJsonPlox(e)
+        except FileNotFoundError as e:
+            raise ValidPathPlox('Error! No file there, bub.')
+        except PermissionError as e:
+            raise ValidPermPlox('Error! Do you even chmod?')
+        except json.decoder.JSONDecodeError as e:
+            raise ValidJsonPlox('Error! Your JSON is weak sauce.')
     return [i for i in _omnomnom(obj, lookup, mode)]
