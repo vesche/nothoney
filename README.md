@@ -2,7 +2,7 @@
 
 This is a small Python package that is able to recursively iterate through a nested (n-deep) dictionary or JSON object/file to retrieve data.
 
-![nothoney](nothoney.jpg)
+![nothoney](https://i.imgur.com/klWK9nP.jpg)
 
 ### So how do I fly this thing?
 
