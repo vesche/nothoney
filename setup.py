@@ -23,5 +23,5 @@ setup(
         'License :: Public Domain',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.10',
-    ]
+    ],
 )

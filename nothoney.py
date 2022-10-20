@@ -2,17 +2,22 @@ import json
 
 modes = ['key', 'value']
 
+
 class InvalidMode(Exception):
     pass
+
 
 class ValidPathPlox(Exception):
     pass
 
+
 class ValidPermPlox(Exception):
     pass
 
+
 class ValidJsonPlox(Exception):
     pass
+
 
 def _omnomnom(obj, lookup, mode):
     if isinstance(obj, dict):
@@ -25,6 +30,7 @@ def _omnomnom(obj, lookup, mode):
     elif isinstance(obj, list):
         for item in obj:
             yield from _omnomnom(item, lookup, mode)
+
 
 def eat(obj, lookup, mode='key', as_file=False):
     if mode not in modes:
